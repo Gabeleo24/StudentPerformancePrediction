@@ -1,0 +1,236 @@
+
+# Project Title: Predicting Student Retention
+
+**Project Status**: Completed
+
+## Project Intro/Objective
+The main objective of this project is to predict student dropout rates using machine learning models. This model provides early identification of at-risk students, allowing universities to intervene proactively. By predicting dropout rates, the project aims to improve student retention, enhance academic outcomes, and support university financial goals through increased tuition retention.
+
+## Partner(s)/Contributor(s)
+- **Gabriel E. Mancillas Gallardo, Amayrani Balbuena**
+- Contact: gmancillasgallardo@sandiego.edu
+
+## Methods Used
+- Data Mining
+- Predictive Modeling (Random Forest, XGBoost)
+- Data Visualization (Tableau)
+- Machine Learning (Supervised Learning)
+- Feature Engineering
+
+## Technologies
+- **Amazon SageMaker**: For training and deploying machine learning models.
+- **Python**: Used for data analysis, feature engineering, and model building.
+    - **Logistic Regression, Random Forest, Gradinet Boosting, SVM**: Used for model building
+- **Jupyter Notebooks**: For model development and documentation.
+- **XGBoost**: Implemented for gradient boosting in the project.
+
+
+## Project Description
+This project focuses on identifying at-risk students using data from university systems. The dataset includes over 4,424 records with multiple features such as academic performance, socio-economic factors, and attendance. 
+
+### Key Steps:
+1. **Data Preprocessing**: Cleaning, normalization, and feature engineering of the student dataset.
+2. **Modeling**: Comparison of various machine learning models, including Random Forest and XGBoost, deployed using Amazon SageMaker.
+3. **Evaluation**: Models were evaluated on accuracy, F1 score, precision, and recall. The Random Forest model achieved an F1 score of 0.86, while the XGBoost model had an F1 score of 0.8748.
+4. **Business Impact**: Improved student retention and financial stability through targeted interventions based on model predictions.
+
+Certainly! Here's a more detailed description of your dataset for the project, which you can include in your README or documentation:
+
+---
+
+### Dataset Description
+
+The dataset used for this project focuses on **student retention** and contains a comprehensive set of features related to student demographics, academic performance, and socioeconomic factors. The aim is to predict which students are at risk of dropping out, allowing for early interventions by educational institutions.
+
+### Key Attributes:
+
+1. **Size of Dataset**:
+   - **Rows**: 4,424 students.
+   - **Columns**: 20 features (including both predictors and the target variable).
+
+2. **Data Source**:
+   - The dataset was derived from the university's **Student Information System (SIS)**. It includes anonymized records of students, detailing their academic progress, financial situation, and other relevant personal data.
+
+3. **Features**:
+   The dataset includes both categorical and numerical variables that can impact student retention:
+   - **Academic Performance**: 
+     - **GPA** (Grade Point Average).
+     - **Credits completed**.
+   - **Financial Data**:
+     - **Financial aid received**.
+     - **Outstanding balance** (student debt).
+   - **Socioeconomic Factors**:
+     - **Household income**.
+     - **Employment status** (whether the student is working while studying).
+   - **Demographic Data**:
+     - **Age**.
+     - **Gender**.
+     - **Ethnicity**.
+   - **Attendance**: 
+     - **Class attendance percentage**.
+     - **Missed assignments**.
+   - **Behavioral Data**:
+     - **Library usage** (e.g., hours spent studying).
+     - **Participation in extracurricular activities**.
+
+4. **Target Variable**:
+   - **Dropout Status**: A binary outcome variable indicating whether the student dropped out (`1`) or continued (`0`).
+
+5. **Data Splitting**:
+   - **Training Data**: 80% of the dataset (3,539 records).
+   - **Test Data**: 20% of the dataset (885 records), held out for model validation.
+
+6. **Data Cleaning and Preprocessing**:
+   - **Handling Missing Values**: Imputation techniques were applied to address missing values, particularly for financial and attendance-related data.
+   - **Normalization**: Numeric features such as GPA and household income were normalized to ensure all values fell within the same range.
+   - **Encoding**: Categorical features such as gender, ethnicity, and employment status were one-hot encoded to be fed into machine learning models.
+
+7. **Potential Data Bias**:
+   - The dataset is **imbalanced**, with more students continuing their studies than dropping out. This imbalance was addressed using techniques such as **resampling** and **class weights** to improve model performance for the minority class (students at risk of dropping out).
+
+8. **Feature Engineering**:
+   - **Attendance rate** was aggregated and transformed into a single percentage score.
+   - **Financial health index**: A composite score was created based on financial aid, outstanding balance, and household income.
+   - **Engagement score**: Based on the number of extracurricular activities and hours spent in the library, a custom engagement feature was created.
+
+### Data Challenges:
+- **Data Imbalance**: The dataset had more students who continued than those who dropped out, making it necessary to adjust for class imbalance to ensure accurate predictions.
+- **Missing Data**: Some records had missing values, particularly in financial and academic features, requiring imputation.
+- **Feature Interactions**: Feature engineering was crucial to capture non-obvious relationships, such as between academic performance and socioeconomic background.
+
+### Key Insights:
+- **Academic Performance**: Low GPA and missed assignments were strong indicators of dropout risk.
+- **Financial Factors**: Students with higher outstanding balances and lower financial aid were more likely to drop out.
+- **Demographic Insights**: Older students and those balancing work and study were identified as having a higher risk of dropping out.
+
+---
+
+## Installation
+To run this project on your local machine:
+
+1. Clone the repository:
+    ```
+    git clone https://github.com/your-repo-url.git
+    ```
+2. Set up the Python environment:
+    ```
+    pip install -r requirements.txt
+    ```
+3. Launch Jupyter Notebook:
+    ```
+    jupyter notebook
+    ```
+4. Run the `FINAL V1.ipynb`, notebook for full model implementation.
+
+if you have AWS you
+
+Certainly! Here are the detailed **Installation Steps** for setting up Amazon SageMaker in your GitHub README:
+
+---
+
+## Installation
+
+To run this project on your local machine or in Amazon SageMaker, follow these steps:
+
+### 1. **Clone the Repository**
+First, clone the GitHub repository to your local machine:
+```bash
+git clone https://github.com/your-repo-url.git
+```
+
+### 2. **Set Up the Python Environment**
+Ensure you have the required dependencies. You can install them via `pip`:
+```bash
+pip install -r requirements.txt
+```
+If you're using a virtual environment (recommended):
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+### 3. **Set Up AWS Command Line Interface (CLI)**
+If you haven't configured AWS CLI yet, follow these steps:
+
+1. **Install AWS CLI**:
+   - You can install the AWS CLI by following the instructions [here](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).
+   
+2. **Configure AWS CLI**:
+   After installation, configure AWS CLI with your credentials:
+   ```bash
+   aws configure
+   ```
+   You will be prompted to enter:
+   - AWS Access Key ID
+   - AWS Secret Access Key
+   - Default region (e.g., `us-west-2`)
+   - Default output format (e.g., `json`)
+
+### 4. **Launch Jupyter Notebook in SageMaker**
+If you're using Amazon SageMaker's Jupyter Notebook instances:
+
+1. Log into the **Amazon SageMaker Console** and create a new **notebook instance**.
+   
+2. Attach an **IAM role** that has permissions to access Amazon S3, SageMaker, and other necessary services.
+
+3. Once your instance is running, upload the Jupyter Notebook (`502FIna_AWS.ipynb`) into your SageMaker instance and open it.
+
+4. **Install required packages** on the SageMaker notebook environment:
+   ```bash
+   !pip install -r requirements.txt
+   ```
+
+### 5. **Run the Jupyter Notebook**
+Execute the notebook to preprocess data, train the model, and deploy the model using Amazon SageMaker:
+1. Open the `502FIna_AWS.ipynb` file.
+2. Follow the cells step-by-step to perform data preprocessing, model training, evaluation, and deployment using SageMaker.
+   
+### 6. **Deploy the Model in SageMaker**
+To deploy the trained model in SageMaker, ensure your notebook includes the following steps:
+   - **Define the model** in SageMaker:
+     ```python
+     model = sagemaker.estimator.Estimator(
+         image_uri=image_uri,
+         role=role,
+         instance_count=1,
+         instance_type='ml.m5.large',
+         output_path=s3_output_path,
+         sagemaker_session=sagemaker_session
+     )
+     ```
+   - **Deploy the model**:
+     ```python
+     predictor = model.deploy(initial_instance_count=1, instance_type='ml.t2.medium')
+     ```
+
+### 7. **Monitor the Model Performance**
+Use **Amazon SageMaker Model Monitor** to continuously track the model’s performance and manage model drift:
+```python
+from sagemaker.model_monitor import DefaultModelMonitor
+monitor = DefaultModelMonitor(
+    role=role,
+    instance_count=1,
+    instance_type='ml.m5.large',
+    volume_size_in_gb=20
+)
+```
+
+### 8. **Terminate SageMaker Resources**
+Once you are done, don’t forget to **delete the endpoint** to avoid unnecessary charges:
+```bash
+predictor.delete_endpoint()
+```
+
+---
+
+This guide provides step-by-step instructions for setting up SageMaker, running the model, and managing the deployment on AWS. Let me know if you need additional details!
+
+## License
+This project is licensed under the MIT License.
+
+## Acknowledgments
+Thanks to the University Data Science Team for providing the anonymized dataset and Amazon for providing the SageMaker platform for deployment. Special thanks to contributors who supported the project development and testing.
+
+---
+
