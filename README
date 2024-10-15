@@ -45,7 +45,7 @@ The dataset used for this project focuses on **student retention** and contains 
 
 1. **Size of Dataset**:
    - **Rows**: 4,424 students.
-   - **Columns**: 20 features (including both predictors and the target variable).
+   - **Columns**: 35 features (including both predictors and the target variable).
 
 2. **Data Source**:
    - The dataset was derived from the university's **Student Information System (SIS)**. It includes anonymized records of students, detailing their academic progress, financial situation, and other relevant personal data.
